@@ -30,8 +30,7 @@ var validarToken = function (req, res, next) {
             var data = JSON.parse(body);
             if (response.statusCode == 200) {
                 next();
-            } else {
-                console.log(response);
+            } else {                
                 res.writeHead(response.statusCode, { 'Content-Type': 'application/json', 'charset': 'utf-8' });
                 res.send({ error: data.error });
             };
