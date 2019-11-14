@@ -1,4 +1,4 @@
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000; 
 
 const TOKEN_HOST = process.env.TOKEN_HOST || 'localhost';
 const TOKEN_PORT = process.env.TOKEN_PORT || '3001';
