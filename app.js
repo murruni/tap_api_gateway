@@ -87,7 +87,7 @@ const server = gateway({
         }
         , {
             prefix: '/count'
-            , pathRegex: ''
+            , pathRegex: '/*'
             , target: REQ_COUNTER_URL
             , prefixRewrite: '/count'
             , methods: ['GET']
@@ -108,7 +108,20 @@ const server = gateway({
             , middlewares: [validarToken]
             , docs: {
                 name: "Request counter, user management"
-                , endpoint: '/user/:id'
+                , endpoint: '/user/:user'
+                , methods: ['GET', 'POST']
+                , description: "Contador de request"
+            }
+        }, {
+            prefix: '/user'
+            , pathRegex: ''
+            , target: REQ_COUNTER_URL
+            , prefixRewrite: '/user'
+            , methods: ['GET', 'POST']
+            , middlewares: [validarToken]
+            , docs: {
+                name: "Request counter, user management"
+                , endpoint: '/user/:user'
                 , methods: ['GET', 'POST']
                 , description: "Contador de request"
             }
