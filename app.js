@@ -1,4 +1,4 @@
-const PORT = process.env.PORT || 3000; 
+const PORT = process.env.PORT || 3000;
 
 const TOKEN_HOST = process.env.TOKEN_HOST || 'localhost';
 const TOKEN_PORT = process.env.TOKEN_PORT || '3001';
@@ -30,7 +30,7 @@ var validarToken = function (req, res, next) {
             var data = JSON.parse(body);
             if (response.statusCode == 200) {
                 next();
-            } else {                
+            } else {
                 res.writeHead(response.statusCode, { 'Content-Type': 'application/json', 'charset': 'utf-8' });
                 res.send({ error: data.error });
             };
@@ -77,7 +77,7 @@ const server = gateway({
             , pathRegex: ''
             , target: VERAZ_URL
             , prefixRewrite: '/veraz'
-            , methods: ['GET', 'POST', 'PATCH']
+            , methods: ['GET', 'POST', 'PATCH', 'PUT']
             , middlewares: [validarToken]
             , docs: {
                 name: "Veraz",
