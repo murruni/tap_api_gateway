@@ -1,8 +1,9 @@
-FROM node:10
+FROM node:12.13.0
 
 WORKDIR /microservice
 
 COPY ./package.json /microservice
+COPY ./package-lock.json /microservice
 COPY ./app.js       /microservice
 
 ENV TOKEN_HOST='localhost'
